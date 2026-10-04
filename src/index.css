@@ -1,0 +1,105 @@
+@import url("https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@600;700&display=swap");
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  font-family: "DM Sans", sans-serif;
+  color: #101827;
+  background: #f7f8fa;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  min-width: 320px;
+  background:
+    radial-gradient(circle at 15% 0%, rgba(162, 15, 24, .035), transparent 28rem),
+    #f7f8fa;
+}
+
+::selection {
+  background: #a20f18;
+  color: #fff;
+}
+
+@layer components {
+  .container-main {
+    @apply mx-auto w-full max-w-6xl px-5 sm:px-7 lg:px-10;
+  }
+
+  .section {
+    @apply py-16 sm:py-20 lg:py-24;
+  }
+
+  .eyebrow {
+    @apply mb-2 text-[10px] font-bold uppercase tracking-[.24em] text-wine;
+  }
+
+  .section-title {
+    @apply font-display text-3xl font-bold tracking-[-.03em] text-ink sm:text-4xl;
+  }
+
+  .section-subtitle {
+    @apply mx-auto mt-3 max-w-2xl text-sm leading-6 text-slate-500 sm:text-base;
+  }
+
+  .glass-card {
+    @apply rounded-2xl border border-white/80 bg-white/90 shadow-card backdrop-blur;
+  }
+
+  .btn-primary {
+    @apply inline-flex items-center justify-center gap-2 rounded-full bg-wine px-6 py-3 text-xs font-bold text-white shadow-lg shadow-red-900/10 transition duration-300 hover:-translate-y-0.5 hover:bg-[#8e0d15];
+  }
+
+  .btn-light {
+    @apply inline-flex items-center justify-center gap-2 rounded-full bg-white px-6 py-3 text-xs font-bold text-wine shadow-lg transition duration-300 hover:-translate-y-0.5;
+  }
+}
+
+.font-display {
+  font-family: "Playfair Display", serif;
+}
+
+.reveal {
+  opacity: 0;
+  transform: translateY(18px);
+  transition: opacity .65s ease, transform .65s ease;
+}
+
+.reveal.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.nav-link {
+  position: relative;
+}
+
+.nav-link::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 100%;
+  bottom: -7px;
+  height: 1.5px;
+  background: #a20f18;
+  transition: right .25s ease;
+}
+
+.nav-link:hover::after {
+  right: 0;
+}
+
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  scrollbar-width: none;
+}
